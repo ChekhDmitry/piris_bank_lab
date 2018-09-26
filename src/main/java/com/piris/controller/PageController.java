@@ -17,4 +17,9 @@ public class PageController {
     public String helloPage() {
         return "pages/hello.html";
     }
+
+    @RequestMapping("/registration")
+    public String getRegistrationPage() {
+        return "pages/registrationpage.html";
+    }
 }
