@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class FirstController {
+public class PageController {
 
     @RequestMapping("/")
     @ResponseBody
@@ -15,7 +15,6 @@ public class FirstController {
 
     @RequestMapping("/hello")
     public String helloPage() {
-
         return "pages/hello.html";
     }
 }
