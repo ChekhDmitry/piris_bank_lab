@@ -5,13 +5,246 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-grid.min.css" rel="stylesheet">
     <link href="../css/bootstrap-reboot.min.css" rel="stylesheet">
+    <style>
+        .error {
+            color: rgba(255, 51, 10, 0.99);
+        }
+    </style>
     <title>Registration</title>
 </head>
 <body>
-    <h1>Registration</h1>
-    <p>Some text!!!</p>
+    <div class="container">
+        <h2 class="text-center">Client registration:</h2>
+        <form id="client_form" class="form-horizontal">
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Имя:</label>
+                <div class="col-md-4">
+                    <input id="name_client" name="name_c" type="text" class="form-control" placeholder="Введите имя...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Фамилия:</label>
+                <div class="col-md-4">
+                    <input id="surname_client" name="surname_c" type="text" class="form-control"
+                           placeholder="Введите фамилию...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Отчество:</label>
+                <div class="col-md-4">
+                    <input id="father_name_client" name="father_name_c" type="text" class="form-control"
+                           placeholder="Введите отчество...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Дата рождения:</label>
+                <div class="col-md-4">
+                    <input id="birth_date_client" name="birth_date_c" type="date" class="form-control">
+                </div>
+            </div>
+
+            <div id="sex_radio_Form" class="form-group">
+                <label class="control-label col-md-4">Пол:</label>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="radio-inline">
+                        <label>
+                            <input id="sex_male_client" checked="checked" type="radio" name="isSex" value="1">Мужской
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input id="sex_female_client" type="radio" name="isSex" value="2">Женский
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Серия паспорта:</label>
+                <div class="col-md-4">
+                    <input id="passport_series_client" name="passport_series_c" type="text" class="form-control"
+                           placeholder="Введите серию паспорта...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Номер паспорта:</label>
+                <div class="col-md-4">
+                    <input id="passport_number_client" name="passport_number_c" type="text" class="form-control"
+                           placeholder="Введите номер паспорта...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Идентификационный номер паспорта:</label>
+                <div class="col-md-4">
+                    <input id="passport_id_client" name="passport_id_c" type="text" class="form-control"
+                           placeholder="Введите идентификационный номер...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Кем выдан паспорт:</label>
+                <div class="col-md-4">
+                    <input id="passport_place_client" name="passport_place_c" type="text" class="form-control"
+                           placeholder="Кем выдан...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Место рождения:</label>
+                <div class="col-md-4">
+                    <input id="birth_place_client" name="birth_place_c" type="text" class="form-control"
+                           placeholder="Место рождения...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Город проживания:</label>
+                <div class="col-md-4">
+                    <select id="city_name_client" name="city_c" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Адрес:</label>
+                <div class="col-md-4">
+                    <input id="address_client" name="address_c" type="text" class="form-control" placeholder="Адрес...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Мобильный номер:</label>
+                <div class="col-md-4">
+                    <input id="mobile_phone_client" name="mobile_phone_c" type="tel" class="form-control"
+                           placeholder="80291112233">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Домашний номер:</label>
+                <div class="col-md-4">
+                    <input id="home_phone_client" name="home_phone_c" type="tel" class="form-control"
+                           placeholder="80132342423">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Email:</label>
+                <div class="col-md-4">
+                    <input id="email_client" name="email_c" type="email" class="form-control"
+                           placeholder="Введите email...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Семейный статус:</label>
+                <div class="col-md-4">
+                    <select id="marital_status_client" name="marital_status_c" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Гражданство:</label>
+                <div class="col-md-4">
+                    <select id="nationality_client" name="nationality_c" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Инвалидность:</label>
+                <div class="col-md-4">
+                    <select id="disability_client" name="disability_c" class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div id="pensionary_radio_Form" class="form-group">
+                <label class="control-label col-md-4">Пенсионер:</label>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="radio-inline">
+                        <label>
+                            <input id="pensionary_client" type="radio" name="isPensionary" value="1">Да
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input id="not_pensionary_client" checked="checked" type="radio" name="isPensionary" value="2">Нет
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-4">Ежемесячный доход:</label>
+                <div class="col-md-4">
+                    <input id="monthly_income_client" name="monthly_income_c" type="text" class="form-control"
+                           placeholder="...">
+                </div>
+            </div>
+
+            <div id="military_radio_Form" class="form-group">
+                <label class="control-label col-md-4">Военнообязанный:</label>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="radio-inline">
+                        <label>
+                            <input id="military_client" type="radio" name="isMilitary" value="1">Да
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input id="not_military_client" checked="checked" type="radio" name="isMilitary" value="2">Нет
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-4">
+                <button id="submit_student_btn" disabled="disabled" type="button" class="btn btn-primary btn-block">
+                    Зарегистрировать
+                </button>
+            </div>
+        </form>
+    </div>
+    <br/>
+    <!--Alert Modal -->
+    <div class="modal fade" id="alert_modal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">x</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> <span id="alert_text"></span> has been saved!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-block" data-dismiss="modal" id="alert_close_btn">Ok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script src="../js/additional-methods.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/custom/registrationClientActions.js"></script>
+<script src="../js/custom/registrationClientValidation.js"></script>
 </html>
