@@ -46,6 +46,15 @@ public class ClientDataController {
         return null;
     }
 
+    @DeleteMapping(value = "", produces = "application/json")
+    @ResponseBody
+    public void deleteClients (@RequestBody List<String> clientIds) {
+
+        for(String clientId : clientIds) {
+            clientEntityService.deleteById(Integer.parseInt(clientId));
+        }
+    }
+
     @GetMapping("")
     @ResponseBody
     public List<ClientEntity> getAllClients() {

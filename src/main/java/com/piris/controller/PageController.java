@@ -22,4 +22,14 @@ public class PageController {
     public String getRegistrationPage() {
         return "pages/registrationpage.html";
     }
+
+    @RequestMapping("/clients")
+    public String getClientsListPage() {
+        return "pages/clientspage.html";
+    }
+
+    @RequestMapping("/clientinfo")
+    public String getClientInfoPage() {
+        return "pages/clientinfo.html";
+    }
 }

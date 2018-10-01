@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-reboot.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap-table.min.css">
+    <title>Client list</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="text-center" style="text-decoration: underline; color: rgba(180, 176, 176, 0.80); font-weight: bold;" >Client information table</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="/registration" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span>Add client</a>
+                </div>
+                <div class="col-md-2">
+                    <button id="delete_client_btn" disabled="disabled" type="submit" class="btn btn-danger btn-block">Delete client<span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+            </div>
+
+            <table class="table table-no-bordered" id="client_table" data-toggle="table"
+                   data-classes="table table-no-bordered"
+                   data-click-to-select="true"
+                   data-url="/client"
+                   data-pagination="true"
+                   data-page-list="[5, 10]"
+                   data-page-size="5"
+                   data-show-refresh="true">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true" data-align="center"></th>
+                    <th data-field="surname" data-align="center">Фамилия</th>
+                    <th data-field="name" data-align="center">Имя</th>
+                    <th data-field="fathersName" data-align="center">Отчество</th>
+                    <th data-field="birthday" data-align="center">Дата рождения</th>
+                    <th data-field="passportSeries" data-align="center">Серия пасспорта</th>
+                    <th data-field="passportNumber" data-align="center">Номер пасспорта</th>
+                    <th data-field="passportId" data-align="center">Идентификационный номер</th>
+                    <th data-field="id" data-formatter="LinkFormatter" data-align="center">Профиль</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function LinkFormatter(value, row, index) {
+        return "<a href=\"clientinfo?id="+value+"\" class=\"btn btn-default btn-block\">Инфо</a>";
+    }
+</script>
+
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/lodash.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script src="../js/additional-methods.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table.min.js"></script>
+<script src="../js/custom/clientsPageActions.js"></script>
+</html>
