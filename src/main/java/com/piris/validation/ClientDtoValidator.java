@@ -47,6 +47,8 @@ public class ClientDtoValidator implements Validator {
         final String FIELD_MONTHLY_INCOME = "monthlyIncome";
         final String FIELD_MILITARY = "military";
 
+        ClientDto clientDto = (ClientDto) object;
+
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_NAME, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_SURNAME, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_FATHER_NAME, ErrorMessage.EMPTYFIELD.getMessage());
@@ -54,12 +56,8 @@ public class ClientDtoValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_BIRTH_PLACE, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_BIRTHDAY, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_DISABILITY_ID, ErrorMessage.EMPTYFIELD.getMessage());
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_EMAIL, ErrorMessage.EMPTYFIELD.getMessage());
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_HOME_MOBILE_NUMBER, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_MARITAL_STATUS_ID, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_MILITARY, ErrorMessage.EMPTYFIELD.getMessage());
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_MOBILE_NUMBER, ErrorMessage.EMPTYFIELD.getMessage());
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_MONTHLY_INCOME, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_NATIONALITY_ID, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_PASSPORT_ID, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_PASSPORT_NUMBER, ErrorMessage.EMPTYFIELD.getMessage());
@@ -68,5 +66,20 @@ public class ClientDtoValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_PENSIONARY, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_SEX, ErrorMessage.EMPTYFIELD.getMessage());
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, FIELD_CITY_ID, ErrorMessage.EMPTYFIELD.getMessage());
+
+        if(clientEntityService.findBySurnameAndNameAndFathersName(clientDto.getSurname(), clientDto.getName(), clientDto.getFathersName()) != null){
+            errors.rejectValue(FIELD_SURNAME, ErrorMessage.USEREXIST.getMessage());
+            errors.rejectValue(FIELD_NAME, ErrorMessage.USEREXIST.getMessage());
+            errors.rejectValue(FIELD_FATHER_NAME, ErrorMessage.USEREXIST.getMessage());
+        }
+
+        if(clientEntityService.findByPassportSeriesAndPassportNumber(clientDto.getPassportSeries(), clientDto.getPassportNumber()) != null){
+            errors.rejectValue(FIELD_PASSPORT_SERIES, ErrorMessage.USEREXIST.getMessage());
+            errors.rejectValue(FIELD_PASSPORT_NUMBER, ErrorMessage.USEREXIST.getMessage());
+        }
+
+        if(clientEntityService.findByPassportId(clientDto.getPassportId()) != null){
+            errors.rejectValue(FIELD_PASSPORT_ID, ErrorMessage.USEREXIST.getMessage());
+        }
     }
 }

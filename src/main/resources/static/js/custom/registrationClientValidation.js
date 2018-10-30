@@ -56,19 +56,16 @@ $(document).ready(function () {
                 maxlength: 20
             },
             mobile_phone_c: {
-                required: true,
                 minlength: 7,
                 maxlength: 11,
                 digits: true
             },
             home_phone_c: {
-                required: true,
                 minlength: 7,
                 maxlength: 11,
                 digits: true
             },
             email_c: {
-                required: true,
                 maxlength: 40,
                 email: true
             },
@@ -82,7 +79,6 @@ $(document).ready(function () {
                 required: true
             },
             monthly_income_c: {
-                required: true,
                 minlength: 1,
                 maxlength: 6,
                 number: true,
@@ -146,19 +142,16 @@ $(document).ready(function () {
                 maxlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мaкс. длина. длина: 20.",
             },
             mobile_phone_c: {
-                required: "<span class='glyphicon glyphicon-exclamation-sign'></span> Обязательное поле.",
                 minlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мин. длина: 7.",
                 maxlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мaкс. длина. длина: 11.",
                 digits: "<span class='glyphicon glyphicon-exclamation-sign'></span> Только цифры."
             },
             home_phone_c: {
-                required: "<span class='glyphicon glyphicon-exclamation-sign'></span> Обязательное поле.",
                 minlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мин. длина: 7.",
                 maxlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мaкс. длина. длина: 11.",
                 digits: "<span class='glyphicon glyphicon-exclamation-sign'></span> Только цифры."
             },
             email_c: {
-                required: "<span class='glyphicon glyphicon-exclamation-sign'></span> Обязательное поле.",
                 maxlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мaкс. длина. длина: 40.",
                 email: "<span class='glyphicon glyphicon-exclamation-sign'></span> Неправильный email."
             },
@@ -172,7 +165,6 @@ $(document).ready(function () {
                 required: "<span class='glyphicon glyphicon-exclamation-sign'></span> Обязательное поле."
             },
             monthly_income_c: {
-                required: "<span class='glyphicon glyphicon-exclamation-sign'></span> Обязательное поле.",
                 minlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мин. длина: 1.",
                 maxlength: "<span class='glyphicon glyphicon-exclamation-sign'></span> Мaкс. длина. длина: 6.",
                 number: "<span class='glyphicon glyphicon-exclamation-sign'></span> Только число.",
@@ -183,6 +175,7 @@ $(document).ready(function () {
     });
 
     $('#client_form input').on('keyup blur', function () {
+        $(".text-danger").remove();
         validateStudentForm();
     });
 

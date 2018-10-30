@@ -10,4 +10,7 @@ public interface ClientEntityService {
     List<ClientEntity> findAll();
     long count();
     void deleteById(int id);
+    ClientEntity findBySurnameAndNameAndFathersName(String surname, String name, String fathersName);
+    ClientEntity findByPassportSeriesAndPassportNumber(String passportSeries, int passportNumber);
+    ClientEntity findByPassportId(String passportId);
 }

@@ -3,7 +3,8 @@ package com.piris.validation.message;
 public enum ErrorMessage {
     EMPTYFIELD("Поле не должно быть пустым."),
     EMAILINUSE("Такой email уже зарегистрирован"),
-    PHONEINUSE("Такой номер телефона уже зарегистрирован");
+    PHONEINUSE("Такой номер телефона уже зарегистрирован"),
+    USEREXIST("Такой пользователь уже зарегистрирован");
 
     private String message;
 

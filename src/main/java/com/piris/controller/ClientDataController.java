@@ -60,4 +60,10 @@ public class ClientDataController {
     public List<ClientEntity> getAllClients() {
         return clientEntityService.findAll();
     }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ClientEntity getClientById(@PathVariable int id) {
+        return clientEntityService.findById(id);
+    }
 }

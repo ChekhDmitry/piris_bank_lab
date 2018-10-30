@@ -38,4 +38,19 @@ public class ClientEntityServiceImpl implements ClientEntityService {
     public void deleteById(int id) {
         clientEntityRepository.deleteById(id);
     }
+
+    @Override
+    public ClientEntity findBySurnameAndNameAndFathersName(String surname, String name, String fathersName) {
+        return clientEntityRepository.findBySurnameAndNameAndFathersName(surname, name, fathersName);
+    }
+
+    @Override
+    public ClientEntity findByPassportSeriesAndPassportNumber(String passportSeries, int passportNumber) {
+        return clientEntityRepository.findByPassportSeriesAndPassportNumber(passportSeries, passportNumber);
+    }
+
+    @Override
+    public ClientEntity findByPassportId(String passportId) {
+        return clientEntityRepository.findByPassportId(passportId);
+    }
 }
